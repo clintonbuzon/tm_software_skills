@@ -5,7 +5,7 @@ from .models import Dailycheckins
 
 # Create your views here.
 def index(request):
-	user_list = Dailycheckins.objects.order_by('user').values('user').distinct()
+	user_list = Dailycheckins.objects.order_by('user').values('user').distinct()[:1000]
 	output = Dailycheckins.objects.all().order_by('-cleaned_timestamp')
 	template = loader.get_template('viewcheckins/index.html')
 	context = {
