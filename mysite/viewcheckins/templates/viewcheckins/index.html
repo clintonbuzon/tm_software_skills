@@ -1,0 +1,51 @@
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+<br>
+<h4 align="center">Thinking Machines Data Engineering Exam Solution - Part 2: Soft(ware) skills</h4>
+<p align="center">By: John Clinton Buzon</p>
+
+{% if user_list %}
+<!-- <h6 align="center">Filter by user: <select onchange="location = this.options[this.selectedIndex].value;" align="center"></h6> -->
+<h6 align="center">Filter by user: <select onchange="if (this.value) window.location.href=this.value" align="center"></h6>
+	<option value="/">All</option>
+{% for user in user_list %}
+    <option value="/viewcheckins/{{ user.user }}" {% if current_user == user.user %} selected {% endif %}>{{ user.user }}</option>
+{% endfor %}
+</select>
+<br><br>
+{% endif %}
+
+
+{% if output %}
+<style>
+.table {
+  border-collapse: collapse;
+  width: 50%;
+}
+
+.th, .td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+</style>
+
+</style>
+    <table class="table table-sm table-hover" align="center">
+    	<thead class="thead-dark">
+    		<th >User</th>
+    		<th>Timestamp</th>
+    		<th>Hours</th>
+    		<th>Project</th>
+    	</thead>
+    {% for checkin in output %}
+    	<tr>
+	        <td><a href="/viewcheckins/{{ checkin.user }}/">{{ checkin.user }}</a></td>
+	        <td>{{ checkin.cleaned_timestamp }}</a></td>
+	        <td>{{ checkin.hours }}</a></td>
+	        <td>{{ checkin.project }}</a></td>
+    	</tr>
+    {% endfor %}
+    </ul>
+{% else %}
+    <p>Data could not be loaded.</p>
+{% endif %}
