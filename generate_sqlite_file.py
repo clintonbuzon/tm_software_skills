@@ -6,6 +6,7 @@
 # sudo yum install sqlite
 # curl -O https://bootstrap.pypa.io/get-pip.py
 # python3 get-pip.py --user
+# rm get-pip.py
 # pip install python-dateutil --user
 # pip install Django==2.1.* --user
 # -----------------------------------------------
