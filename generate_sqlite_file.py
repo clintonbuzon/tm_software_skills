@@ -23,7 +23,7 @@ temp_database = "temp.db"
 final_database = "dailycheckins.db"
 django_dir = "mysite/"
 
-sql_create_dailycheckins_table = "CREATE TABLE IF NOT EXISTS dailycheckins (id INTEGER PRIMARY KEY, user text, original_timestamp text, hours text, project text, cleaned_timestamp);"
+sql_create_dailycheckins_table = "CREATE TABLE IF NOT EXISTS dailycheckins (id INTEGER PRIMARY KEY, user text, original_timestamp text, hours double, project text, cleaned_timestamp);"
 
 # Function which creates databased connection.
 # If the provided file does not exist, this function will automaticall create new db file
