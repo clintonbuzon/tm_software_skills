@@ -1,84 +1,87 @@
-{% load static %}
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-<style>
-body {
-  background-image: url('{% static "viewcheckins/trees.png" %}');
-}
+<head>
+	{% load static %}
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+	<style>
+	body {
+	  background-image: url('{% static "viewcheckins/trees.png" %}');
+	}
 
-.table {
-  background: rgba(255,255,255,1);
-  border-collapse: collapse;
-  width: 75%;
-}
+	.table {
+	  background: rgba(255,255,255,1);
+	  border-collapse: collapse;
+	  width: 75%;
+	}
 
-.th, .td {
-  padding: 8px;
-  text-align: left;
-  border-bottom: 1px solid #ddd;
-}
+	.th, .td {
+	  padding: 8px;
+	  text-align: left;
+	  border-bottom: 1px solid #ddd;
+	}
 
-.thead {
-	text-align: center;
-}
-
-
-.form-control {
-    display: inline;
-    width: 20%;
-}
-
-</style>
-<br>
-<h4 align="center">Thinking Machines Data Engineering Exam Solution - Part 2: Soft(ware) skills</h4>
-<p align="center">By: John Clinton Buzon</p>
-
-{% if user_list %}
-<h6 align="center">Filter by user: <select class="form-control" onchange="if (this.value) window.location.href=this.value" align="center">
-	<option value="/">All</option>
-{% for user in user_list %}
-    <option value="/viewcheckins/{{ user.user }}" {% if current_user == user.user %} selected {% endif %}>{{ user.user|title }}</option>
-{% endfor %}
-</select></h6>
-<br>
-{% endif %}
+	.thead {
+		text-align: center;
+	}
 
 
-{% if output %}
-<nav aria-label="Page navigation example">
-  <ul class="pagination justify-content-center">
-    {% if output.has_previous %}
-    <li class="page-item"><a class="page-link" tabindex="-1" href="?page=1">&laquo; first</a></li>
-    <li class="page-item"><a class="page-link" href="?page={{ output.previous_page_number }}">previous</a></li>
-    {% endif %}
+	.form-control {
+	    display: inline;
+	    width: 20%;
+	}
+	</style>
+</head>
+<body>
+	<br>
+	<h4 align="center">Thinking Machines Data Engineering Exam Solution - Part 2: Soft(ware) skills</h4>
+	<p align="center">By: John Clinton Buzon</p>
 
-    <li class="page-item disabled">
-      <a class="page-link" href="#" tabindex="-1">Page {{ output.number }} of {{ output.paginator.num_pages }}.</a>
-    </li>
+	{% if user_list %}
+	<h6 align="center">Filter by user: 
+		<select class="form-control" onchange="if (this.value) window.location.href=this.value" align="center">
+			<option value="/">All</option>
+			{% for user in user_list %}
+	    	<option value="/viewcheckins/{{ user.user }}" {% if current_user == user.user %} selected {% endif %}>{{ user.user|title }}</option>
+			{% endfor %}
+		</select>
+	</h6>
+	<br>
+	{% endif %}
 
-    {% if output.has_next %}
-    <li class="page-item"><a class="page-link" href="?page={{ output.next_page_number }}">next</a></li>
-    <li class="page-item"><a class="page-link" href="?page={{ output.paginator.num_pages }}">last &raquo;</a></li>
-    {% endif %}
-  </ul>
-</nav>
+	{% if output %}
+	<nav aria-label="Page navigation example">
+	 	<ul class="pagination justify-content-center">
+	    	{% if output.has_previous %}
+	    	<li class="page-item"><a class="page-link" tabindex="-1" href="?page=1">&laquo; first</a></li>
+	    	<li class="page-item"><a class="page-link" href="?page={{ output.previous_page_number }}">previous</a></li>
+	    	{% endif %}
 
-    <table class="table table-hover table-bordered" align="center">
-    	<thead class="thead-dark">
-    		<th >User</th>
-    		<th>Timestamp</th>
-    		<th>Hours</th>
-    		<th>Project</th>
-    	</thead>
-    {% for checkin in output %}
-    	<tr>
-	        <td><a href="/viewcheckins/{{ checkin.user }}/">{{ checkin.user|title }}</a></td>
-	        <td>{{ checkin.cleaned_timestamp }}</a></td>
-	        <td>{{ checkin.hours }}</a></td>
-	        <td>{{ checkin.project|title }}</a></td>
-    	</tr>
-    {% endfor %}
-       
-{% else %}
-    <p>Data could not be loaded.</p>
-{% endif %}
+	    	<li class="page-item disabled">
+	      		<a class="page-link" href="#" tabindex="-1">Page {{ output.number }} of {{ output.paginator.num_pages }}.</a>
+	    	</li>
 
+	    	{% if output.has_next %}
+	    	<li class="page-item"><a class="page-link" href="?page={{ output.next_page_number }}">next</a></li>
+	    	<li class="page-item"><a class="page-link" href="?page={{ output.paginator.num_pages }}">last &raquo;</a></li>
+	    	{% endif %}
+	  	</ul>
+	</nav>
+
+	<table class="table table-hover table-bordered" align="center">
+		<thead class="thead-dark">
+	    	<th >User</th>
+	    	<th>Timestamp</th>
+	    	<th>Hours</th>
+	    	<th>Project</th>
+	    </thead>
+	    {% for checkin in output %}
+	    <tr>
+			<td><a href="/viewcheckins/{{ checkin.user }}/">{{ checkin.user|title }}</a></td>
+			<td>{{ checkin.cleaned_timestamp }}</a></td>
+			<td>{{ checkin.hours }}</a></td>
+			<td>{{ checkin.project|title }}</a></td>
+	    </tr>
+	    {% endfor %}
+	</table>
+	{% else %}
+	    <p>Data could not be loaded.</p>
+	{% endif %}
+</body>
