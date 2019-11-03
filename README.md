@@ -48,6 +48,16 @@ The script `generate_sqlite_file.py` would generate a sqlite database file `dail
 
 My solution for this is to create a python web app using `Django` python framework installed in an AWS EC2 instance (free-tier).
 
+##### Django details
+
+I already created the django website as  `mysite` folder. A lot of setup is done on django framework but majority of my code changes would be on the following scripts:
+
+- `mysite/viewcheckins/views.py`
+- `mysite/viewcheckins/models.py`
+- `mysite/viewcheckins/templates/viewcheckins/index.html`
+
+##### AWS EC2 details and setup
+
 1. Create EC2 instace. [Documentation here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html).
 2. Add [inbound](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/authorizing-access-to-an-instance.html) rule to your EC2 security group. Inbound rule should allow Type: `Custom TCP Rule` Port: `8000` Source: `0.0.0.0/0`. This would be the connection to be used later.
 3. [Connect to EC2 instance.](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-connect-methods.html)
