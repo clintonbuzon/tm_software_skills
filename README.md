@@ -60,6 +60,8 @@ I already created the django website as  `mysite` folder. A lot of setup is done
 - `mysite/viewcheckins/models.py`
 - `mysite/viewcheckins/templates/viewcheckins/index.html`
 
+Note: Website uses capitalization on user and project column only at front-end. Underlying data is still raw and untouched.
+
 ##### AWS EC2 details and setup
 
 1. Create EC2 instace. [Documentation here](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EC2_GetStarted.html).
