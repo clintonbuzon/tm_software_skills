@@ -6,6 +6,8 @@ By: John Clinton Buzon
 
 ### Solutions
 
+Cleaning and loading to database script: `generate_sqlite_file.py`. Details below.
+
 Cleaned database: `dailycheckins.db` as [sqlite](https://sqlite.org/cli.html) database file. 
 
 Solution website: http://ec2-13-229-64-171.ap-southeast-1.compute.amazonaws.com:8000/
