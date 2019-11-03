@@ -6,7 +6,7 @@ By: John Clinton Buzon
 
 ### Solutions
 
-Cleaned database: `dailycheckins.db`
+Cleaned database: `dailycheckins.db` as [sqlite](https://sqlite.org/cli.html) database file. 
 
 Solution website: http://ec2-13-229-64-171.ap-southeast-1.compute.amazonaws.com:8000/
 
