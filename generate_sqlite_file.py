@@ -1,6 +1,7 @@
 # EC2 prerequsites
 # -----------------------------------------------
 # Python 3.7.3
+# -----------------------------------------------
 # sudo yum update
 # sudo yum install python3
 # sudo yum install sqlite
