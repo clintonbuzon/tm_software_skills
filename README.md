@@ -74,7 +74,7 @@ pip install python-dateutil --user
 pip install Django==2.1.* --user
 ```
 
-5. Upload everyting in this repository to EC2. You may use your FTP tool if your choice (I used winscp).
+5. Upload everyting in this repository to EC2. You may use your FTP tool of your choice (I used winscp).
 6. Execute `chmod 775 generate_sqlite_file.py start_server_local.sh` to provide execute permissions for the scripts to be executed.
 7. Execute `python3 ./generate_sqlite_file.py`. This cleans the data from `dailycheckins.csv` and creates `dailycheckins.db` & `mysite/db.sqlite3`
 8. Execute `./start_server_local.sh` to enable website. Take note this is starting for development server.
