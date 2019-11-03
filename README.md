@@ -10,6 +10,8 @@ Cleaned database: `dailycheckins.db`
 
 Solution website: http://ec2-13-229-64-171.ap-southeast-1.compute.amazonaws.com:8000/
 
+If the website cannot be accessed, you may reach out to me at clinton.buzon@gmail.com.
+
 ### Details below
 
 #### Decrypt the PGP-encrypted data
