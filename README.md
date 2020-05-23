@@ -2,6 +2,10 @@
 
 By: John Clinton Buzon
 
+## Exam Question
+
+[Click here to check on exam question](https://github.com/thinkingmachines/de-exam)
+
 ## Part 2: Soft(ware) skills
 
 ### Solutions
